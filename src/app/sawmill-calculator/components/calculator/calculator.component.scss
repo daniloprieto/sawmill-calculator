@@ -1,0 +1,43 @@
+*{
+  font-family:monospace;
+}
+:host{
+  display:grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-areas: ". calc .";
+
+  padding-top:10%;
+}
+
+.calc{
+  grid-area: calc;
+  justify-self: center;
+  align-self: center;
+}
+
+.calc > table {
+  background:rgb(97, 99, 99);
+}
+.calc > table > thead > th{
+  background:rgb(58, 57, 57);
+  color:rgb(248, 132, 0);
+  width:100px;
+}
+
+.calc input{
+  width: 100px;
+}
+
+td > span{
+  color:greenyellow;
+}
+
+@media(max-width:420px){
+  :host{
+    display:grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: ". calc .";
+
+    padding-top:10%;
+  }
+}

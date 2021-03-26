@@ -1,0 +1,82 @@
+<section class="calc">
+
+  <table>
+
+    <thead>
+      <th>Cant.</th>
+      <th>Pulgadas</th>
+      <th>Largo</th>
+      <th>Metros</th>
+      <th>Pies</th>
+      <th></th>
+    </thead>
+
+    <tbody *ngIf="this.add">
+      <td><input type="number" name="quantity" [(ngModel)]="add.quantity" (change)="change()"></td>
+      <td><input type="number" name="inches" [(ngModel)]="add.inches" (change)="change()"></td>
+      <td><input type="number" name="length" [(ngModel)]="add.length" (change)="change()"></td>
+      <td><span>{{add.meters}}</span></td>
+      <td><span>{{add.feet}}</span></td>
+      <td>
+        <button mat-raised-button color="primary" (click)="addToOrder(this.add)">Añadir</button>
+      </td>
+    </tbody>
+
+  </table>
+
+  <br>
+
+  <table>
+    <thead>
+      <th>Cant.</th>
+      <th>Pulgadas</th>
+      <th>Largo</th>
+      <th>Metros</th>
+      <th>Pies</th>
+      <th>Precio</th>
+      <th></th>
+    </thead>
+    <ng-container *ngFor="let product of order; let i = index">
+
+      <tbody *ngIf="this.order">
+          <td><span>{{product.quantity}}</span></td>
+          <td><span>{{product.inches}}</span></td>
+          <td><span>{{product.length}}</span></td>
+          <td><span>{{product.meters}}</span></td>
+          <td><span>{{product.feet}}</span></td>
+          <td><span>${{product.price}}</span></td>
+          <td>
+            <button mat-raised-button color="primary" (click)="quitToOrder(i)">Borrar</button>
+          </td>
+      </tbody>
+    </ng-container>
+
+  <br>
+
+  </table>
+
+  <table>
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Metros</th>
+      <th>Pies</th>
+      <th>Total</th>
+    </thead>
+
+    <tbody>
+        <td><span></span></td>
+        <td><span></span></td>
+        <td><span></span></td>
+        <td><span>{{meters}}</span></td>
+        <td><span>{{feet}}</span></td>
+        <td><span>${{price}}</span></td>
+    </tbody>
+
+
+
+  </table>
+
+
+</section>
